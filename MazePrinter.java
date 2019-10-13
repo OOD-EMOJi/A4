@@ -2,8 +2,12 @@
  *
  * @author ellie
  */
-public class MazePrinter {
+public class MazePrinter implements Observer<Maze>{
     
+	public void update(Observable<Maze> maze) {
+		//stubbed
+	}
+	
     public void printMaze(Maze maze) {
         System.out.println();
         for (int i=0; i < maze.tiles.length; i++) {

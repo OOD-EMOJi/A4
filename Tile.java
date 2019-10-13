@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author olymp
- */
 public class Tile {
+	
+	private Thing contents;
     private boolean isWall;
 
     public Tile(boolean isWall) {
         this.isWall = isWall;
+		this.contents = null;
     }
 
     public boolean isWall() {
@@ -24,8 +17,16 @@ public class Tile {
     }
 
     public void makePath() {
-	isWall = false;
+		isWall = false;
     }
+
+	public Thing getContents() {
+		return contents;
+	}
+	
+	public void setContents(Thing contents) {
+		this.contents = contents;
+	}
 
 	@Override
 	public String toString() {
