@@ -56,7 +56,7 @@ public class DepthFirstSearchMazeGenerator implements MazeGenerator {
 		}
 		
 		//setting maze entrance and exit
-		tiles[0][1] = true;
+        tiles[0][1] = true; // TODO: make this a random spot on the left
 		tiles[width - 1][height - 2] = true;
 		
 		// step 1
