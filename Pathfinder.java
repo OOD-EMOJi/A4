@@ -1,5 +1,5 @@
 import java.util.*;
 
-public interface PathFinder {
+public interface Pathfinder {
 	public List<Tile> findPath();
 }
