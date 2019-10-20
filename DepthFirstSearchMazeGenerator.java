@@ -109,7 +109,7 @@ public class DepthFirstSearchMazeGenerator implements MazeGenerator {
 		Tile[][] ret = new Tile[width][height];
 		for(int i = 0; i < width; i++) {
 			for(int j = 0; j < height; j++) {
-				ret[i][j] = new Tile(!tiles[i][j]);
+				ret[i][j] = new Tile(!tiles[i][j], i, j);
 			}
 		}
 		return ret;
