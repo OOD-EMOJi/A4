@@ -18,7 +18,7 @@ import java.util.ArrayList;
 11]End the process when we find the "Ending Tile"
 */
 
-public class DepthFirstSearchPathFinder implements PathFinder{
+public class DepthFirstSearchPathFinder implements Pathfinder{
     // memeber fields
 	private Maze maze;
 	private int  height ;
