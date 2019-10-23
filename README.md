@@ -4,6 +4,6 @@ Overview of the structure + hierarchy
 
 What patterns we're using
 
-Class diagram
+![class diagram](Flowchart.png)
 
 ## Classes
