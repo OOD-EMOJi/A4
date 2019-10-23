@@ -36,7 +36,7 @@ public class Maze implements Observable<Maze>{
 		//}
         tiles = generator.generateMaze( width, height );
 		this.start = tiles[1][1];
-		this.end = tiles[tiles.length - 1][tiles[0].length - 1];
+		this.end = tiles[tiles.length - 2][tiles[0].length - 2];
     }
 	
 	public Tile getStart() {
