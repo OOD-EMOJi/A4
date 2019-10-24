@@ -17,7 +17,7 @@ public class MazePrinter implements Observer<Maze>{
 //                    System.out.print("██");
                     System.out.print("##");
                 else
-                    System.out.print("  ");
+                    System.out.print(maze.tiles[i][j].getContents().draw());
             }
             System.out.println();
         }
