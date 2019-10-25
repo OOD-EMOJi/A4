@@ -6,9 +6,9 @@ A Maze.
 
 Download and unzip all the files into one folder, then run Driver
 
-![class diagram](Flowchart.png)
+## Code reference
 
-## Reference
+![class diagram](Flowchart.png)
 
 ### Maze Contents
 
@@ -35,4 +35,15 @@ There are [many different ways] to create a maze! The `MazeGenerator` interface 
 `Tile[][] generateMaze(int w, int h)`: Given the size of a Maze, determine which Tiles are walls and which are paths, then return the newly populated tiles.
 
 [many different ways]: http://weblog.jamisbuck.org/2011/2/7/maze-generation-algorithm-recap
+
+#### Things
+
+Things live inside Tiles and are separate from Walls. Each `Thing` has a location {`int x`, `int y`} that matches the location of the `Tile` it inhabits, and a character to represent itself visually.
+
+`public char draw()` returns the character representing the Thing.
+`public void move()` updates the Thing's location, sets its previous Tile's `contents` to null, and inserts itself into its new Tile's `contents`. If a `Thing` is stationary, `move()` is blank.
+
+### Movement
+
+#### The Mouse 🐭
 
