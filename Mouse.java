@@ -35,5 +35,11 @@ public class Mouse implements Thing {
 
 	
 	public void move() {
+		List<Tile> list = pathFinder.findPath();
+		for (Tile t : list) {
+			this.setX(t.getX());
+			this.setY(t.getY());
+			this.draw();
+		}
 	}
 }
