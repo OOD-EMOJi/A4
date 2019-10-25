@@ -55,3 +55,22 @@ The Mouse's goal is to get to the end of the maze, no matter the cost. It is cur
 `Mouse` can travel the `Maze` in [any number of different ways]. It contains a `List<Tile> path` to travel, a `Pathfinder pathfinder` that is responsible for generating this path, and an `int i` that keeps track of where in the path it is.
 
 [any number of different ways]: https://en.wikipedia.org/wiki/Maze_solving_algorithm
+
+#### Pathfinder
+
+`public List<Tile> findPath()`: Find a path through the Maze belonging to the `Thing` owner of this Pathfinder, and return a list of Tiles representing each step of this path.
+
+
+## Algorithms
+
+### Maze Generation
+
+#### Depth-first search
+
+#### Prim's algorithm
+
+### Pathfinding
+
+#### Depth-first search
+
+#### Wall following
