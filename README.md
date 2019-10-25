@@ -38,7 +38,7 @@ There are [many different ways] to create a maze! The `MazeGenerator` interface 
 
 #### Things
 
-Things live inside Tiles and are separate from Walls. Each `Thing` has a location {`int x`, `int y`} that matches the location of the `Tile` it inhabits, and a character to represent itself visually.
+A `Thing` is anything that lives inside a `Tile` that is not a wall or path. Each `Thing` has a location {`int x`, `int y`} that matches the location of the `Tile` it inhabits, and a character to represent itself visually.
 
 `public char draw()` returns the character representing the Thing.
 
