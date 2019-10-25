@@ -41,9 +41,17 @@ There are [many different ways] to create a maze! The `MazeGenerator` interface 
 Things live inside Tiles and are separate from Walls. Each `Thing` has a location {`int x`, `int y`} that matches the location of the `Tile` it inhabits, and a character to represent itself visually.
 
 `public char draw()` returns the character representing the Thing.
+
 `public void move()` updates the Thing's location, sets its previous Tile's `contents` to null, and inserts itself into its new Tile's `contents`. If a `Thing` is stationary, `move()` is blank.
 
 ### Movement
 
 #### The Mouse 🐭
 
+The Mouse's goal is to get to the end of the maze, no matter the cost. It is currently unknown if the end of the maze contains cheese. What we do know is that our Mouse will stop at nothing to solve any puzzle presented to it.
+
+`public class Mouse implements Thing`, so `Mouse` knows where it is located and what character it looks like.
+
+`Mouse` can travel the `Maze` in [any number of different ways]. It contains a `List<Tile> path` to travel, a `Pathfinder pathfinder` that is responsible for generating this path, and an `int i` that keeps track of where in the path it is.
+
+[any number of different ways]: https://en.wikipedia.org/wiki/Maze_solving_algorithm
