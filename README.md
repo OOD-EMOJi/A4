@@ -69,19 +69,38 @@ The Mouse's goal is to get to the end of the maze, no matter the cost. It is cur
 
 The `DepthFirstSearchMazeGenerator` uses a Stack and two boolean arrays to implement maze generation. The paths are created much like a mole in a nest. It digs tunnels until it reaches a point in the	maze it has already visited then backtracks until it can move randomly again.
 
-*NOTE:* A modification to this algorithm had to be made to compensate for our differing maze structure.
+We implemented this algorithm as shown here: ([1])
 
-The mazes on [the Wikipedia page for this algorithm] use a maze with each Tile having four walls to begin with and remove those when creating the maze. Because our Maze is made of walls and spaces, this was tricky to implement.
+*NOTE:* A modification to the algorithm had to be made to compensate for our differing maze structure.
+
+The mazes on the Wikipedia page for this algorithm ([1]) use a maze with each Tile having four walls to begin with and remove those when creating the maze. Because our Maze is made of walls and spaces, this was tricky to implement.
 
 We expanded the dimensions of the maze so that instead of checking the tile next to it, it checks the tile 2 tiles away from it. This is because the 4 tiles surrounding the Tile are considered walls in the other structure. This leads to a resulting Tile[][] with dimensions:	(2 * w + 1) x (2 * h + 1)
 
-[the Wikipedia page for this algorithm]: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search
+[1]: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search
 
 #### Prim's algorithm
 
 ### Pathfinding
 
 #### Depth-first search
+
+The `DepthFirstSearchPathfinder` looks through each possible path before returning the shortest path. It discovers paths like so:
+        
+```
+1] Initialize an empty stack for storing the unexplored tiles, and In a list to store the Tiles in the path
+        2] Initialize 2D boolean array "visited" 
+        3] push the "Beginign Tile" into the stack, and add it the path List
+        4] While the current tile is not the "Ending Tile":
+        5]      while the stack is not empty:
+        6] pop the first tile in the stack
+        7] if the tile is not visited and its not a wall:
+        8]      then visit the 
+        9]      for each unvisited neighbor of the current tile :
+                    if the unvisited neighbor  is not a wall:
+        10]         push the unvisited neighbor into the stack
+        11]End the process when we find the "Ending Tile"      
+```
 
 #### Wall following
 
