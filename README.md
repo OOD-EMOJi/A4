@@ -74,3 +74,5 @@ The Mouse's goal is to get to the end of the maze, no matter the cost. It is cur
 #### Depth-first search
 
 #### Wall following
+
+The `WallFollowerPathfinder` keeps a hand on the rightmost wall and follows wherever that wall goes. By keeping a hand (...paw? claw? What do mice have?) on the railing, the mouse is guaranteed not to get lost. They will eventually reach an exit if there is one. (Our maze always has an exit.)
