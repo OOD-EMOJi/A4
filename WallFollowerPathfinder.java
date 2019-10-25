@@ -23,18 +23,21 @@ public class WallFollowerPathfinder implements Pathfinder {
         Tile prev;
         
         LinkedList<Tile> path = new LinkedList<Tile>();
+        HashSet<Tile> visited = new HashSet<Tile>();
+        
         while (c != maze.getEnd()) {
             path.add(c);
+            visited.add(c);
             int x = c.getX(), y = c.getY();
             Tile west = maze.tiles[x-1][y], east = maze.tiles[x+1][y];
             Tile north = maze.tiles[x][y-1], south = maze.tiles[x][y+1];
-            if (south.isWall() && !east.isWall()) {
+            if (south.isWall() && !east.isWall() && !visited.contains(south) && !visited.contains(east)) {
                 c = east;
-            } else if (!south.isWall()) {
+            } else if (!south.isWall() && !visited.contains(south)) {
                 c = south;
-            } else if (!north.isWall() && east.isWall()) {
+            } else if (!north.isWall() && east.isWall() && !visited.contains(north) && !visited.contains(east)) {
                 c = north;
-            } else if (east.isWall() && !west.isWall()) {
+            } else if (east.isWall() && !west.isWall() && !visited.contains(east) && !visited.contains(west)) {
                 c = west;
             } else {
                 System.out.println("bro wtf");
