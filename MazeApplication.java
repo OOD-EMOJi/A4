@@ -31,9 +31,9 @@ public class MazeApplication extends Application {
 		
 		MazePrinter mazePrinter = new MazePrinter();
 		Maze maze = new Maze(new DepthFirstSearchMazeGenerator());
-		maze.generateMaze(10,10);
+		maze.generateMaze(5,5);
 		
-		Mouse mouse = new Mouse(maze.getStart().getX(), maze.getStart().getY(), new DepthFirstSearchPathFinder(maze));
+		Mouse mouse = new Mouse(maze.getStart().getX(), maze.getStart().getY(), new WallFollowerPathfinder(maze));
 		maze.getStart().setContents(mouse);
 		
 		Timeline loop = new Timeline();
@@ -41,7 +41,7 @@ public class MazeApplication extends Application {
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
-		loop.getKeyFrames().add(new KeyFrame(Duration.seconds(0.5f), new EventHandler<ActionEvent>(){
+		loop.getKeyFrames().add(new KeyFrame(Duration.seconds(0.25f), new EventHandler<ActionEvent>(){
 			public void handle(ActionEvent event) {
 				
 				gc.clearRect(0, 0, 800, 800);

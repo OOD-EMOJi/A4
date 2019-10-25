@@ -28,11 +28,10 @@ public class WallFollowerPathfinder implements Pathfinder {
         Direction dir = Direction.E;
         
         LinkedList<Tile> path = new LinkedList<Tile>();
-        HashSet<Tile> visited = new HashSet<Tile>();
-        
+        path.add(c);
+		
         while (c != maze.getEnd()) {
-            path.add(c);
-            visited.add(c);
+            
             int x = c.getX(), y = c.getY();
             Tile west = maze.tiles[x-1][y], east = maze.tiles[x+1][y];
             Tile north = maze.tiles[x][y-1], south = maze.tiles[x][y+1];
@@ -91,9 +90,11 @@ public class WallFollowerPathfinder implements Pathfinder {
                         dir = Direction.S;
                     } break;
                 default:
-                    System.out.println("I'm stuck at tile " c.getX() + ", " + c.getY());
+                    System.out.println("I'm stuck at tile " + c.getX() + ", " + c.getY());
             }
+			path.add(c);
         }
+		path.add(c);
         return path;
     }
 }
