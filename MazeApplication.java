@@ -3,6 +3,10 @@ import javafx.scene.*;
 import javafx.scene.canvas.*;
 import javafx.application.*;
 import javafx.event.*;
+import javafx.util.Duration;
+import javafx.animation.Timeline;
+import javafx.animation.KeyFrame;
+
 
 public class MazeApplication extends Application {
 	Canvas canvas;
@@ -24,16 +28,35 @@ public class MazeApplication extends Application {
 		
 		primaryStage.setScene(scene);
 		
-		primaryStage.show();
 		
 		MazePrinter mazePrinter = new MazePrinter();
-		Maze maze = new Maze(new PrimsMazeGenerator());
+		Maze maze = new Maze(new DepthFirstSearchMazeGenerator());
 		maze.generateMaze(10,10);
 		
-		Mouse mouse = new Mouse(maze.getStart().getX(), maze.getStart().getY(), new WallFollowerPathfinder(maze));
+		Mouse mouse = new Mouse(maze.getStart().getX(), maze.getStart().getY(), new DepthFirstSearchPathFinder(maze));
 		maze.getStart().setContents(mouse);
 		
+		Timeline loop = new Timeline();
+		loop.setCycleCount(Timeline.INDEFINITE);
+
+		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
-		MazeDrawer.drawMaze(maze, canvas);	
+		loop.getKeyFrames().add(new KeyFrame(Duration.seconds(0.5f), new EventHandler<ActionEvent>(){
+			public void handle(ActionEvent event) {
+				
+				gc.clearRect(0, 0, 800, 800);
+				
+				mouse.move();
+				
+				MazeDrawer.drawMaze(maze, canvas);
+			
+			}
+		}));
+
+		
+		
+		primaryStage.show();
+	
+		loop.play();
 	}
 }

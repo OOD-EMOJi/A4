@@ -42,6 +42,7 @@ public class DepthFirstSearchPathFinder implements Pathfinder{
         findPath(start, path, visited);
         //System.out.println(findPath(start, path, visited));
         Collections.reverse(path);
+		System.out.println(path.size());
         return path ;
         
     }
@@ -61,17 +62,18 @@ public class DepthFirstSearchPathFinder implements Pathfinder{
 
                 for (int[] shift : SHIFTS) {
                    // System.out.println("Doing shifts!");
-                    int x= currentTile.x +shift[0];
-                    int y= currentTile.y + shift[1];
+                    int x= currentTile.getX() +shift[0];
+                    int y= currentTile.getY() + shift[1];
                     if(x>=0 && x<width && y>=0 && y< height){
                        // System.out.println("in maze!");
                         Tile neighbor = maze.tiles[x][y];
                         if (canTraverse(neighbor, visited)){
                            // System.out.println("can traverse");
-                            visited[currentTile.x][currentTile.y] = true;
+                            visited[currentTile.getX()][currentTile.getY()] = true;
                             if(findPath(neighbor, path, visited)){
+
                                 path.add(neighbor);
-                               // System.out.println("adding to path");
+								//System.out.println("adding to path");
                                 return true;   
                             }
                             
@@ -92,6 +94,6 @@ public class DepthFirstSearchPathFinder implements Pathfinder{
 
     */
         private Boolean canTraverse(Tile tile,boolean[][] visited) {
-            return  !tile.isWall() && !visited[tile.x][tile.y]; 
+            return  !tile.isWall() && !visited[tile.getX()][tile.getY()]; 
         }
 }

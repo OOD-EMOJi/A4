@@ -10,7 +10,6 @@ public class MazeDrawer {
 		int w = maze.tiles.length;
 		int h = maze.tiles[0].length;
 		
-		System.out.println(canvas);
 		GraphicsContext brush = canvas.getGraphicsContext2D();
 		
 		for(int x = 0; x < w; x++) {
