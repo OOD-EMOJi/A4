@@ -81,6 +81,17 @@ We expanded the dimensions of the maze so that instead of checking the tile next
 
 #### Prim's algorithm
 
+from https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_algorithm
+
+1. Start with a grid full of walls.
+1. Pick a cell, mark it as part of the maze. Add the walls of the cell to the wall list.
+   1. While there are walls in the list:
+      1. Pick a random wall from the list. If only one of the two cells that the wall divides is visited, then:
+         1. Make the wall a passage and mark the unvisited cell as part of the maze.
+         1. Add the neighboring walls of the cell to the wall list.
+      1. Remove the wall from the list.
+
+
 ### Pathfinding
 
 #### Depth-first search
