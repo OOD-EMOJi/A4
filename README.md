@@ -67,6 +67,16 @@ The Mouse's goal is to get to the end of the maze, no matter the cost. It is cur
 
 #### Depth-first search
 
+The `DepthFirstSearchMazeGenerator` uses a Stack and two boolean arrays to implement maze generation. The paths are created much like a mole in a nest. It digs tunnels until it reaches a point in the	maze it has already visited then backtracks until it can move randomly again.
+
+*NOTE:* A modification to this algorithm had to be made to compensate for our differing maze structure.
+
+The mazes on [the Wikipedia page for this algorithm] use a maze with each Tile having four walls to begin with and remove those when creating the maze. Because our Maze is made of walls and spaces, this was tricky to implement.
+
+We expanded the dimensions of the maze so that instead of checking the tile next to it, it checks the tile 2 tiles away from it. This is because the 4 tiles surrounding the Tile are considered walls in the other structure. This leads to a resulting Tile[][] with dimensions:	(2 * w + 1) x (2 * h + 1)
+
+[the Wikipedia page for this algorithm]: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search
+
 #### Prim's algorithm
 
 ### Pathfinding
