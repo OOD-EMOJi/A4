@@ -4,7 +4,7 @@ A Maze.
 
 ## Installation
 
-Download and unzip all the files into one folder, then run Driver
+Download and unzip all the files into one folder, then run MazeApplication
 
 ## Code reference
 
