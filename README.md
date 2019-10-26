@@ -96,22 +96,9 @@ from https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_a
 
 #### Depth-first search
 
-The `DepthFirstSearchPathfinder` looks through each possible path before returning the shortest path. It discovers paths like so:
-        
-```
-1] Initialize an empty stack for storing the unexplored tiles, and In a list to store the Tiles in the path
-        2] Initialize 2D boolean array "visited" 
-        3] push the "Beginign Tile" into the stack, and add it the path List
-        4] While the current tile is not the "Ending Tile":
-        5]      while the stack is not empty:
-        6] pop the first tile in the stack
-        7] if the tile is not visited and its not a wall:
-        8]      then visit the 
-        9]      for each unvisited neighbor of the current tile :
-                    if the unvisited neighbor  is not a wall:
-        10]         push the unvisited neighbor into the stack
-        11]End the process when we find the "Ending Tile"      
-```
+The `DepthFirstSearchPathfinder` looks through each possible path before returning the shortest path. It tries every direction for each tile by calling the findpath() function recursively on the four neighbours of each tile, which should return true whenever it finds the “Ending Tile”. We add the tile to the path if and only if calling findpath() on this tiles returns true. This makes sure that we are only adding the shortest path to the path list. 
+
+
 
 #### Wall following
 
