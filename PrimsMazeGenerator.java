@@ -92,6 +92,9 @@ public class PrimsMazeGenerator implements MazeGenerator {
 			
 			
 		}
+		
+		tiles[0][1].makePath();
+		tiles[width - 1][height - 2].makePath();
 		return tiles;		
 	}
 }
