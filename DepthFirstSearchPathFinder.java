@@ -3,20 +3,19 @@ import java.util.ArrayList;
 import java.util.*;
 import java.io.*;
         /*
-                  Algorithm
+                 Algorithm
         
-        1] Initialize an empty stack for storing the unexplored tiles, and In a list to store the Tiles in the path
+        
+        1] Initialize a list to store the Tiles in the path
         2] Initialize 2D boolean array "visited" 
-        3] push the "Beginign Tile" into the stack, and add it the path List
-        4] While the current tile is not the "Ending Tile":
-        5]      while the stack is not empty:
-        6] pop the first tile in the stack
-        7] if the tile is not visited and its not a wall:
-        8]      then visit the 
-        9]      for each unvisited neighbor of the current tile :
-                    if the unvisited neighbor  is not a wall:
-        10]         push the unvisited neighbor into the stack
-        11]End the process when we find the "Ending Tile"
+        3]  The findPath(): that takes the  tile, the path list, and the visited list
+        4] if the tile is not the ending tile
+        5] shift up, down, left , or right
+        6] if the neighbor tile is not visited, visit it
+        7] call findpath() recursively on each neighbor
+        8] return true when you find the ending tile
+        9] add the neighbor to the path list only if  the function returns true, so we can create the shortest path
+  
 
     */
 
