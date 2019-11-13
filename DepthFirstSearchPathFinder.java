@@ -38,7 +38,7 @@ public class DepthFirstSearchPathFinder implements Pathfinder{
     public List<Tile> findPath(){
         List<Tile> path = new ArrayList<Tile>();
         boolean[][] visited = new boolean[width][height];
-        findPath(start, path, visited);
+        findPath(start, end, path, visited);
         //System.out.println(findPath(start, path, visited));
         Collections.reverse(path);
 		System.out.println(path.size());
@@ -47,10 +47,10 @@ public class DepthFirstSearchPathFinder implements Pathfinder{
     }
 
 
-        public Boolean findPath(Tile tile, List<Tile> path, boolean[][] visited){
+        public Boolean findPath(Tile startTile, Tile endTile, List<Tile> path, boolean[][] visited){
             //System.out.println("finding path!");
-            Tile currentTile = tile ;
-            if (currentTile == end)return true;
+            Tile currentTile = startTile ;
+            if (currentTile == endTile)return true;
     
             int[][] SHIFTS = {
                 {0 , 1}, // going right
